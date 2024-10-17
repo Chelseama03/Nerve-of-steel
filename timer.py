@@ -19,12 +19,30 @@ im = Image.open("times-up.jpeg")
 # ask user to enter desired countdown time
 set_time = int(input("Please set your timer in seconds: "))
 
-while 25>set_time>10:
-	set_time = int(input("Please set your timer between 10 to 25 seconds: "))
-
-
+while not (10<=set_time<=25):
+	set_time=int(input("Please choose a number between 10 to 25 seconds: ")
 
 time.sleep(set_time)
 
+#Create a list to track the name of users who sat down
+
+players_sat = []
+
+#Initiate New Variables
+current_time = time.time()
+limit=current_time + set_time
+
+while current_time <= limit:
+	players=input("Enter the name of players who sat down: ")
+	if players:
+		player_sat.append(players)
+	else:
+		print("Nobody sat down!")
+print ("Time 's up!")
 im.show()
 
+if player_sat:
+	winner = player_sat[-1]
+	print(f"The winner's {winner}~Yeah!")
+else:
+	print("No one wins :-(")
